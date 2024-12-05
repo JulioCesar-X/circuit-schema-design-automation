@@ -6,7 +6,7 @@ import tempfile
 from datetime import datetime
 
 OUTPUT_DIR = 'assets'
-OUTPUT_FILE_FORMAT = 'circuit_{timestamp}.png'
+OUTPUT_FILE_FORMAT = 'project_{timestamp}_circuit.png'
 
 def create_directory_if_needed(directory):
     """
