@@ -1,7 +1,6 @@
 import os
 import shutil
 
-# Constants
 DEFAULT_DIR_NAME = 'default_project'
 PROJECTS_BASE_DIR = os.path.expanduser('~/dev/projects')
 
@@ -76,25 +75,17 @@ def create_project(project_name):
     Args:
         project_name (str): The name of the new project.
     """
-    # Ensure the base directory for projects exists
     ensure_directory_exists(PROJECTS_BASE_DIR)
-
-    # Get source and destination paths
     default_dir, new_project_dir = get_project_paths(project_name)
 
-    # Check if the project directory already exists
     if os.path.exists(new_project_dir):
         print(f"Error: The directory '{new_project_dir}' already exists!")
         return
 
-    # Copy the default directory to create the new project
     copy_directory(default_dir, new_project_dir, ignore_patterns=['venv'])
-
-    # Display next steps for the user
     display_next_steps(project_name)
 
 if __name__ == "__main__":
-    # Prompt user for the new project name
     project_name = input("Enter the name of the new project: ").strip()
     if project_name:
         create_project(project_name)
